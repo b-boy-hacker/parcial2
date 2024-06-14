@@ -1,0 +1,57 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex justify-center mt-6">
+    <a href="/usuarios" class="custom-button">
+      usuarios
+    </a>
+    <a href="/facultades" class="custom-button">
+      Facultad
+    </a>
+    <a href="/carreras" class="custom-button">
+      carreras
+    </a>
+    <a href="/materias" class="custom-button">
+      materias
+    </a>
+    <a href="/aulas" class="custom-button">
+      aulas
+    </a>
+  </div>
+  <h1 class="text-2xl font-bold mt-6 mb-6 text-center">Lista de Carreras</h1>
+
+  <table class="min-w-full bg-white text-center">
+    <thead>
+      <tr>
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">Nombre</th>
+        <th class="py-2 px-4 border-b">Código</th>
+        <th class="py-2 px-4 border-b">Facultad</th>
+        <th class="py-2 px-4 border-b">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carrera of carreras">
+        <td class="py-2 px-4 border-b">{{ carrera.id }}</td>
+        <td class="py-2 px-4 border-b">{{ carrera.nombre }}</td>
+        <td class="py-2 px-4 border-b">{{ carrera.codigo }}</td>
+        <td class="py-2 px-4 border-b">{{ carrera.facultad.nombre }}</td>
+        <td class="py-2 px-4 border-b">
+          <button (click)="editCarrera(carrera.id)" class="bg-blue-500 text-white px-3 py-1 rounded-md">Editar</button>
+          <button (click)="confirmDelete(carrera.id)" class="bg-red-500 text-white px-3 py-1 rounded-md ml-2">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="flex justify-start mt-4">
+    <button (click)="addCarrera()" class="bg-blue-950 text-white px-4 py-2 rounded-md">Añadir Carrera</button>
+  </div>
+</div>
+
+<app-carrera-modal *ngIf="showModal" [carrera]="selectedCarrera" [isEditMode]="isEditMode" (closeModal)="handleCloseModal()" (saveCarrera)="saveCarrera($event)"></app-carrera-modal>
+
+<app-confirm-modal *ngIf="showConfirmModal" (confirm)="deleteCarrera()" (cancel)="handleCloseConfirmModal()"></app-confirm-modal>
+
+<!-- Toast Notification -->
+<div *ngIf="toastMessage" [ngClass]="toastClass" class="toast">
+  {{ toastMessage }}
+</div>

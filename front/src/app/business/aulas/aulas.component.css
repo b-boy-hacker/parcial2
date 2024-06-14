@@ -1,0 +1,31 @@
+.custom-button {
+  background-color: darkblue;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out;
+  margin-right: 2rem; /* Espaciado a la derecha incrementado */
+}
+
+.custom-button:last-child {
+  margin-right: 0; /* Eliminar margen para el último elemento */
+}
+
+.custom-button:hover {
+  background-color: teal;
+}
+
+.custom-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.5);
+}
+
+.custom-heading {
+  margin-top: 2rem; /* Ajusta según sea necesario */
+  margin-bottom: 2rem; /* Ajusta según sea necesario */
+}
+
