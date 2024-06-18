@@ -1,0 +1,51 @@
+<!-- programacion-academica.component.html -->
+
+<div class="container">
+    <h2>Programación Académica</h2>
+  
+    <!-- Formulario para crear nueva programación académica -->
+    <form (ngSubmit)="crearProgramacionAcademica()">
+      <div class="form-group">
+        <label for="materiaId">ID de Materia:</label>
+        <input type="number" class="form-control" id="materiaId" name="materiaId" [(ngModel)]="nuevaProgramacionAcademica.materiaId" required>
+      </div>
+      <div class="form-group">
+        <label for="aulaId">ID de Aula:</label>
+        <input type="number" class="form-control" id="aulaId" name="aulaId" [(ngModel)]="nuevaProgramacionAcademica.aulaId" required>
+      </div>
+      <div class="form-group">
+        <label for="grupo">Grupo:</label>
+        <input type="text" class="form-control" id="grupo" name="grupo" [(ngModel)]="nuevaProgramacionAcademica.grupo" required>
+      </div>
+      <div class="form-group">
+        <label for="docenteIds">IDs de Docentes:</label>
+        <input type="text" class="form-control" id="docenteIds" name="docenteIds" [(ngModel)]="nuevaProgramacionAcademica.docenteIds" required>
+      </div>
+      <div class="form-group">
+        <label for="sesionClaseIds">IDs de Sesiones de Clase:</label>
+        <input type="text" class="form-control" id="sesionClaseIds" name="sesionClaseIds" [(ngModel)]="nuevaProgramacionAcademica.sesionClaseIds" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Programación Académica</button>
+    </form>
+  
+    <hr>
+  
+    <!-- Lista de programaciones académicas -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let programacion of programacionesAcademicas">
+        <div>
+          <strong>ID: {{ programacion.id }}</strong><br>
+          Materia ID: {{ programacion.materiaId }}<br>
+          Aula ID: {{ programacion.aulaId }}<br>
+          Grupo: {{ programacion.grupo }}<br>
+          Docente IDs: {{ programacion.docenteIds }}<br>
+          Sesión Clase IDs: {{ programacion.sesionClaseIds }}
+        </div>
+        <div>
+          <button class="btn btn-sm btn-danger" (click)="eliminarProgramacionAcademica(programacion.id)">Eliminar</button>
+          <!-- Puedes agregar un botón para editar aquí si es necesario -->
+        </div>
+      </li>
+    </ul>
+  </div>
+  

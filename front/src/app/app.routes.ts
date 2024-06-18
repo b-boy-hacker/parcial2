@@ -45,7 +45,25 @@ export const routes: Routes = [
         canActivate: [roleGuard],
         data: { expectedRole: 'ADMIN' }
       },
+      {
+        path: 'programacion_academica',
+        loadComponent: () => import('./programacion-academica/programacion-academica.component').then(m => m.ProgramacionAcademicaComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
+      {
+        path: 'licencia',
+        loadComponent: () => import('./licencia/licencia.component').then(m => m.LicenciaComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
     ]
+  },
+  {
+    path: 'docente',
+    loadComponent: () => import('./docente/docente.component').then(m => m.DocenteComponent),
+    canActivate: [roleGuard],
+    data: { expectedRole: 'PROFESOR' }
   },
   {
     path: 'login',

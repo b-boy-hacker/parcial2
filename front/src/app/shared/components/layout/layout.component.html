@@ -1,14 +1,25 @@
-<div class="min-h-screen bg-gray-50/50">
-  <app-sidebar></app-sidebar>
-  <div class="p-4 xl:ml-80">
-    <nav class="block w-full max-w-full bg-transparent text-white shadow-none rounded-xl transition-all px-0 py-1">
+<div class="container px-7"> <!-- 3.5rem (56px) -->
+  <app-header></app-header>
+</div>
+
+<div class="container px-20 py-5"> <!-- 5rem (80px) horizontal y 1.25rem (20px) vertical -->
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- <div class="min-h-screen bg-gray-50/50"> -->
+  <!-- <app-sidebar></app-sidebar> -->
+  <!-- <div class="p-4 xl:ml-80"> -->
+    <!-- <nav class="block w-full max-w-full bg-transparent text-white shadow-none rounded-xl transition-all px-0 py-1">
       <app-header></app-header>
-    </nav>
+    </nav> -->
+    <!-- <app-header></app-header>
     <div class="mt-12">
       <router-outlet></router-outlet>
-    </div>
-    <div class="text-blue-gray-600">
+    </div> -->
+    <!-- <div class="text-blue-gray-600">
       <app-footer></app-footer>
-    </div>
-  </div>
-</div>
+    </div> -->
+  <!-- </div> -->
+<!-- </div> -->
+

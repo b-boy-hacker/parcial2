@@ -1,26 +1,10 @@
 <div class="container mx-auto px-4 py-8">
-  <div class="flex justify-center mt-6">
-    <a href="/usuarios" class="custom-button">
-      usuarios
-    </a>
-    <a href="/facultades" class="custom-button">
-      Facultad
-    </a>
-    <a href="/carreras" class="custom-button">
-      carreras
-    </a>
-    <a href="/materias" class="custom-button">
-      materias
-    </a>
-    <a href="/aulas" class="custom-button">
-      aulas
-    </a>
-  </div>
-  <h1 class="text-2xl font-bold mt-6 mb-6 text-center">Lista de Materias</h1>
+  
+  <h1 class="text-4xl font-bold mt-6 mb-6 text-center">Lista de Materias</h1>
 
   <table class="min-w-full bg-white text-center">
     <thead>
-      <tr>
+      <tr class="bg-gray-700 text-white">
         <th class="py-2 px-4 border-b">ID</th>
         <th class="py-2 px-4 border-b">Nombre</th>
         <th class="py-2 px-4 border-b">Créditos</th>
@@ -35,7 +19,7 @@
         <td class="py-2 px-4 border-b">{{ materia.creditos }}</td>
         <td class="py-2 px-4 border-b">{{ materia.carrera.nombre }}</td>
         <td class="py-2 px-4 border-b">
-          <button (click)="editMateria(materia.id)" class="bg-blue-500 text-white px-3 py-1 rounded-md">Editar</button>
+          <button (click)="editMateria(materia.id)" class="bg-yellow-500 text-white px-3 py-1 rounded-md">Editar</button>
           <button (click)="confirmDelete(materia.id)" class="bg-red-500 text-white px-3 py-1 rounded-md ml-2">Eliminar</button>
         </td>
       </tr>

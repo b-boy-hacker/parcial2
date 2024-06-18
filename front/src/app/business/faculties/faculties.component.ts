@@ -43,6 +43,7 @@ export class FacultiesComponent implements OnInit {
       }
     );
   }
+  
 
   editFaculty(facultyId: number) {
     this.selectedFaculty = this.faculties.find(faculty => faculty.id === facultyId) || this.selectedFaculty;

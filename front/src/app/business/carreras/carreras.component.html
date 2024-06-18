@@ -1,48 +1,35 @@
 <div class="container mx-auto px-4 py-8">
   <div class="flex justify-center mt-6">
-    <a href="/usuarios" class="custom-button">
-      usuarios
-    </a>
-    <a href="/facultades" class="custom-button">
-      Facultad
-    </a>
-    <a href="/carreras" class="custom-button">
-      carreras
-    </a>
-    <a href="/materias" class="custom-button">
-      materias
-    </a>
-    <a href="/aulas" class="custom-button">
-      aulas
-    </a>
+    <h1 class="text-4xl font-bold mt-8 mb-8 text-center">Lista de Carreras</h1>
   </div>
-  <h1 class="text-2xl font-bold mt-6 mb-6 text-center">Lista de Carreras</h1>
 
-  <table class="min-w-full bg-white text-center">
-    <thead>
-      <tr>
-        <th class="py-2 px-4 border-b">ID</th>
-        <th class="py-2 px-4 border-b">Nombre</th>
-        <th class="py-2 px-4 border-b">Código</th>
-        <th class="py-2 px-4 border-b">Facultad</th>
-        <th class="py-2 px-4 border-b">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let carrera of carreras">
-        <td class="py-2 px-4 border-b">{{ carrera.id }}</td>
-        <td class="py-2 px-4 border-b">{{ carrera.nombre }}</td>
-        <td class="py-2 px-4 border-b">{{ carrera.codigo }}</td>
-        <td class="py-2 px-4 border-b">{{ carrera.facultad.nombre }}</td>
-        <td class="py-2 px-4 border-b">
-          <button (click)="editCarrera(carrera.id)" class="bg-blue-500 text-white px-3 py-1 rounded-md">Editar</button>
-          <button (click)="confirmDelete(carrera.id)" class="bg-red-500 text-white px-3 py-1 rounded-md ml-2">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white text-center">
+      <thead>
+        <tr class="bg-gray-700 text-white">
+          <th class="py-2 px-4 border-b text-center">ID</th>
+          <th class="py-2 px-4 border-b text-center">Nombre</th>
+          <th class="py-2 px-4 border-b text-center">Código</th>
+          <th class="py-2 px-4 border-b text-center">Facultad</th>
+          <th class="py-2 px-4 border-b text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let carrera of carreras">
+          <td class="py-2 px-4 border-b text-center">{{ carrera.id }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ carrera.nombre }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ carrera.codigo }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ carrera.facultad.nombre }}</td>
+          <td class="py-2 px-4 border-b text-center">
+            <button (click)="editCarrera(carrera.id)" class="bg-yellow-500 text-white px-3 py-1 rounded-md">Editar</button>
+            <button (click)="confirmDelete(carrera.id)" class="bg-red-500 text-white px-3 py-1 rounded-md ml-2">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <div class="flex justify-start mt-4">
+  <div class=" mt-4">
     <button (click)="addCarrera()" class="bg-blue-950 text-white px-4 py-2 rounded-md">Añadir Carrera</button>
   </div>
 </div>

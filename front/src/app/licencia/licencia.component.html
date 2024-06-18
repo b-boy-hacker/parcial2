@@ -1,0 +1,64 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mt-8 mb-8 text-center">Lista de Licencias</h1>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-slate-100 rounded-lg shadow-md">
+      <thead>
+        <tr class="bg-gray-700 text-white">
+          <th class="py-2 px-4 border-b text-center">ID</th>
+          <th class="py-2 px-4 border-b text-center">Fecha Inicio</th>
+          <th class="py-2 px-4 border-b text-center">Fecha Fin</th>
+          <th class="py-2 px-4 border-b text-center">Motivo</th>
+          <th class="py-2 px-4 border-b text-center">Estado</th>
+          <th class="py-2 px-4 border-b text-center">Docente</th>
+          <th class="py-2 px-4 border-b text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let licencia of licencias">
+          <td class="py-2 px-4 border-b text-center">{{ licencia.id }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ licencia.fechaInicio | date}}</td>
+          <td class="py-2 px-4 border-b text-center">{{ licencia.fechaFin | date}}</td>
+          <td class="py-2 px-4 border-b text-center">{{ licencia.motivo }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ licencia.estado }}</td>
+          <td class="py-2 px-4 border-b text-center">{{ licencia.docente.nombre }}</td>
+          <td class="py-2 px-4 border-b text-center">
+            <button (click)="editLicencia(licencia.id)" class="bg-yellow-500 text-white px-3 py-1 rounded-md">Editar</button>
+            <button (click)="confirmDelete(licencia.id)" class="bg-red-500 text-white px-3 py-1 rounded-md ml-2">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Centrando el botón -->
+  <div class="mt-4">
+    <button (click)="addLicencia()" class="bg-blue-950 text-white px-4 py-2 rounded-md">Añadir Licencia</button>
+  </div>
+</div>
+
+<!-- Modal para editar/agregar licencia -->
+<div *ngIf="showModal">
+  <!-- Aquí puedes incluir tu componente modal para editar/agregar licencia -->
+  <!-- Asumiendo que tienes un componente llamado app-licencia-modal -->
+  <app-licencia-modal
+    [licencia]="selectedLicencia"
+    [isEditMode]="isEditMode"
+    (closeModal)="handleCloseModal()"
+    (saveLicencia)="saveLicencia($event)">
+  </app-licencia-modal>
+</div>
+
+<!-- Modal de confirmación para eliminar licencia -->
+<div *ngIf="showConfirmModal">
+  <!-- Aquí puedes incluir tu componente modal de confirmación -->
+  <!-- Asumiendo que tienes un componente llamado app-confirm-modal -->
+  <app-confirm-modal
+    (confirm)="deleteLicencia()"
+    (cancel)="handleCloseConfirmModal()">
+  </app-confirm-modal>
+</div>
+
+<!-- Toast Notification -->
+<div *ngIf="toastMessage" [ngClass]="toastClass" class="toast text-center py-2 fixed bottom-0 left-0 right-0 bg-opacity-90">
+  {{ toastMessage }}
+</div>
